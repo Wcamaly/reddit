@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/gray" name="gray">#999999</color>
+    <color android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/black" name="black">#000000</color>
+	<color android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/graylight" name="graylight">#cccccc</color>
+    
+    
+</resources>
