@@ -1080,7 +1080,8 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
+        public static final int custom_btn_shakespeare=0x7f020057;
+        public static final int ic_launcher=0x7f020058;
     }
     public static final class id {
         public static final int T_AUTHOR=0x7f090040;
@@ -1212,6 +1213,7 @@ containing a value of this type.
         public static final int reddit=0x7f0c0001;
     }
     public static final class string {
+        public static final int Link_Web=0x7f0a0011;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1488,6 +1490,7 @@ containing a value of this type.
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0b0022;
         public static final int author_publish=0x7f0b0090;
         public static final int box_liner=0x7f0b008d;
+        public static final int btnStyleShakespeare=0x7f0b0093;
         public static final int comment_publish=0x7f0b0092;
         public static final int date_publish=0x7f0b0091;
         public static final int image_small=0x7f0b008e;
