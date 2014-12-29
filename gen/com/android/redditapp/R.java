@@ -1084,12 +1084,13 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020058;
     }
     public static final class id {
-        public static final int T_AUTHOR=0x7f090040;
+        public static final int L_Redit=0x7f09003e;
+        public static final int T_AUTHOR=0x7f090041;
         public static final int T_BUTImgBig=0x7f09003d;
-        public static final int T_COMMENT=0x7f090042;
-        public static final int T_DATE=0x7f090041;
-        public static final int T_IMG_SMALL=0x7f09003e;
-        public static final int T_TITLE=0x7f09003f;
+        public static final int T_COMMENT=0x7f090043;
+        public static final int T_DATE=0x7f090042;
+        public static final int T_IMG_SMALL=0x7f09003f;
+        public static final int T_TITLE=0x7f090040;
         public static final int T_image=0x7f09003c;
         public static final int action_bar=0x7f09001c;
         public static final int action_bar_activity_content=0x7f090001;
@@ -1102,7 +1103,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f090043;
+        public static final int action_settings=0x7f090044;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;

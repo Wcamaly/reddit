@@ -239,12 +239,13 @@ int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
 int drawable custom_btn_shakespeare 0x7f020057
 int drawable ic_launcher 0x7f020058
-int id T_AUTHOR 0x7f090040
+int id L_Redit 0x7f09003e
+int id T_AUTHOR 0x7f090041
 int id T_BUTImgBig 0x7f09003d
-int id T_COMMENT 0x7f090042
-int id T_DATE 0x7f090041
-int id T_IMG_SMALL 0x7f09003e
-int id T_TITLE 0x7f09003f
+int id T_COMMENT 0x7f090043
+int id T_DATE 0x7f090042
+int id T_IMG_SMALL 0x7f09003f
+int id T_TITLE 0x7f090040
 int id T_image 0x7f09003c
 int id action_bar 0x7f09001c
 int id action_bar_activity_content 0x7f090001
@@ -257,7 +258,7 @@ int id action_context_bar 0x7f09001d
 int id action_menu_divider 0x7f090002
 int id action_menu_presenter 0x7f090003
 int id action_mode_close_button 0x7f090024
-int id action_settings 0x7f090043
+int id action_settings 0x7f090044
 int id activity_chooser_view_content 0x7f090025
 int id always 0x7f09000f
 int id beginning 0x7f090016

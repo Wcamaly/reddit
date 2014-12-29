@@ -8,6 +8,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.redditapp.RedditActivity" >
 
-    
+    <ListView
+        android:id="@+id/L_Redit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
 
 </RelativeLayout>
