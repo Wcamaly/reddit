@@ -3,7 +3,7 @@
     android:layout_height="fill_parent" >
 
     <ImageView
-        android:id="@+id/T_image"
+        android:id="@+id/timage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/T_BUTImgBig"
@@ -11,7 +11,7 @@
         android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
 
     <Button
-        android:id="@+id/T_BUTImgBig"
+        android:id="@+id/tbuttonbig"
         style="@style/btnStyleShakespeare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
