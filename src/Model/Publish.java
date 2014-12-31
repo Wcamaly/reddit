@@ -1,6 +1,8 @@
 package Model;
 
-public class publish {
+import Extras.Utils;
+
+public class Publish {
 	
 	private String title;
 	private String autor;
@@ -8,7 +10,7 @@ public class publish {
 	private String thumbail;
 	private String bigImage;
 	private String date;
-	public publish (){
+	public Publish (){
 		this.title = null;
 		this.autor = null;
 		this.comments = null;
@@ -16,13 +18,13 @@ public class publish {
 		this.bigImage = null;
 		this.date = null;
 	}
-	public publish (String title, String autor, String comments, String thumbail, String bigImage, String date){
+	public Publish (String title, String autor, String comments, String thumbail, String bigImage, String date){
 		this.title = title;
 		this.autor = autor;
 		this.comments = comments;
 		this.thumbail = thumbail;
 		this.bigImage = bigImage; 
-		this.date = date;
+		this.date = Utils.ChangeDate(date);
 	}
 	
 	public String getTitle(){

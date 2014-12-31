@@ -2,26 +2,27 @@ package Adapters;
 
 import java.util.List;
 
+import Model.Publish;
 import Model.ViewHolderReddit;
-import Model.publish;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import Extras.Utils;
 import com.android.redditapp.R;
 //import android.R;
 
-public class AdapterReddit extends ArrayAdapter<publish> {
+public class AdapterReddit extends ArrayAdapter<Publish> {
 
 	Activity ctx;
 	int lis;
-	List<publish> obj;
-	public AdapterReddit(Context context, int resource, List<publish> objects) {
+	List<Publish> obj;
+	public AdapterReddit(Context context, int resource, List<Publish> objects) {
 		super(context, resource, objects);
 		this.ctx = (Activity) context;
 		this.lis = resource;
@@ -48,18 +49,26 @@ public class AdapterReddit extends ArrayAdapter<publish> {
 			holder = (ViewHolderReddit) convertView.getTag();
 		}
 		
-		publish publ = obj.get(position);
+		Publish publ = obj.get(position);
 		
 		if (publ != null ){
 			holder.autor.setText(publ.getAutor());
 			holder.comments.setText(publ.getCommnets());
 			holder.date.setText(publ.getDate());
-			holder.thumbail.setImageBitmap(bm);
+			if (publ.getThumbail() != null){
+				Bitmap thumbail = Utils.LoadThumbail(publ.getThumbail(), ctx);
+				if (thumbail == null)
+					holder.thumbail.setImageResource(R.drawable.ic_launcher);
+				else
+					holder.thumbail.setImageBitmap(thumbail);
+			}else
+				holder.thumbail.setImageResource(R.drawable.ic_launcher);
 			
 		}
 		return convertView;
 	}
-	
+
+
 	
 
 }

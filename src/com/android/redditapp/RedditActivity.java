@@ -1,34 +1,30 @@
 package com.android.redditapp;
 
-import android.support.v7.app.ActionBarActivity;
+import java.util.ArrayList;
+
+import Adapters.AdapterReddit;
+import Model.Publish;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.ListView;
 
-public class RedditActivity extends ActionBarActivity {
+public class RedditActivity extends RestActivity {
 
+	String pettion = "top.json";
+	String method ="GET";
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_reddit);
+		ListView list = (ListView) findViewById(R.id.lredit);
+		makeRequest(pettion, method);
+		ArrayList<Publish> list1 = getListPublish();
+		
+		AdapterReddit adapter = new AdapterReddit(getApplicationContext(), R.layout.list_redit, list1);
+		
+		list.setAdapter(adapter);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.reddit, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+	
+	
+	
 }
