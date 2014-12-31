@@ -55,6 +55,7 @@ public class AdapterReddit extends ArrayAdapter<Publish> {
 			holder.autor.setText(publ.getAutor());
 			holder.comments.setText(publ.getCommnets());
 			holder.date.setText(publ.getDate());
+			holder.title.setText(publ.getTitle());
 			if (publ.getThumbail() != null){
 				Bitmap thumbail = Utils.LoadThumbail(publ.getThumbail(), ctx);
 				if (thumbail == null)

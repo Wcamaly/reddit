@@ -10,7 +10,7 @@ public class VolleyServices {
 	// This is the thread. 
 	private RequestQueue mrequest;
 	private VolleyServices (Context context){
-		mrequest  = Volley.newRequestQueue(context);
+		mrequest  = Volley.newRequestQueue(context.getApplicationContext());
 	}
 	public static VolleyServices getInstance (Context context){
 		if (volleys == null){

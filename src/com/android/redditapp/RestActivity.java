@@ -6,10 +6,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Adapters.AdapterReddit;
 import Extras.VolleyServices;
 import Model.Publish;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -23,11 +25,13 @@ public class RestActivity extends ActionBarActivity {
 	private VolleyServices volleys;
 	protected RequestQueue request;
 	private String url = "http://www.reddit.com/";
-	private ArrayList<Publish> listpubli;
+	public ArrayList<Publish> listpubli = new ArrayList<Publish>();
 	
 	public void onCreate(Bundle saveinstances){
 		super.onCreate(saveinstances);
-		volleys = VolleyServices.getInstance(getApplicationContext());
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+	    requestWindowFeature(Window.FEATURE_PROGRESS);
+		volleys = VolleyServices.getInstance(this);
 		request = volleys.getRequestQueue();
 	}
 	public void onStop(){
@@ -36,10 +40,13 @@ public class RestActivity extends ActionBarActivity {
 			request.cancelAll(this);
 	}
 	public void onPreStartConnection() {
-        this.setProgressBarIndeterminateVisibility(true);
+        setProgressBarIndeterminateVisibility(true);
+        setProgressBarVisibility(true);
+        
     }
     public void onConnectionFinished() {
-        this.setProgressBarIndeterminateVisibility(false);
+       this.setProgressBarIndeterminateVisibility(false);
+       setProgressBarVisibility(false);
     }
     public void onConnectionFailed(String error) {
         this.setProgressBarIndeterminateVisibility(false);
@@ -58,32 +65,41 @@ public class RestActivity extends ActionBarActivity {
     	}	
     }
     
-    public void makeRequest (String pettion,String method){
+    public void makeRequest (String pettion,String method, final AdapterReddit adapter){
     	int met;
     	if (method.equalsIgnoreCase("POST") || method.equalsIgnoreCase("PUT"))
     	{	met = Request.Method.PUT;} 
     	else{
     		met = Request.Method.GET;
     	}
-    		JsonObjectRequest jsonrequest = new JsonObjectRequest(met, url+pettion, null, 
+    	
+    	
+       	JsonObjectRequest jsonrequest = new JsonObjectRequest(met, url+pettion, null, 
     				new Response.Listener<JSONObject>() {
 
 						@Override
 						public void onResponse(JSONObject response) {
 							try {
+							
 								JSONArray jsonarry = response.getJSONObject("data").getJSONArray("children");
 								for (int i=0; i<jsonarry.length(); i++){
 									
 									JSONObject json = jsonarry.getJSONObject(i).getJSONObject("data");
+									long aux = json.getLong("created_utc");
 									Publish publ = new Publish(json.getString("title"),json.getString("author"),
 											json.getString("num_comments"),json.getString("thumbnail"),json.getString("url"),
-											json.getString("created_utc"));
+											json.getLong("created_utc"));
 									listpubli.add(publ);									
 								}
 							
 							} catch (JSONException e) {
+								onConnectionFailed(e.toString());
 								e.printStackTrace();
 							}
+							onConnectionFinished();
+							adapter.notifyDataSetChanged();
+							
+								
 						}
 					}, new Response.ErrorListener() {
 
@@ -93,12 +109,10 @@ public class RestActivity extends ActionBarActivity {
 							
 						}
 					});
-    		addToQueue(jsonrequest);
+       		onPreStartConnection();
+    		request.add(jsonrequest);
     
 	}
     
-    public ArrayList<Publish> getListPublish (){
-    	return listpubli;
-    }
 
 }

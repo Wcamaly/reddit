@@ -18,7 +18,7 @@ public class Publish {
 		this.bigImage = null;
 		this.date = null;
 	}
-	public Publish (String title, String autor, String comments, String thumbail, String bigImage, String date){
+	public Publish (String title, String autor, String comments, String thumbail, String bigImage, Long date){
 		this.title = title;
 		this.autor = autor;
 		this.comments = comments;

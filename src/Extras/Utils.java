@@ -1,6 +1,6 @@
 package Extras;
 
-import java.sql.Date;
+import java.util.Date;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -39,10 +39,11 @@ public class Utils {
 	}
 	
 	
-	static public String ChangeDate (String utc){
-		long lutc = Long.parseLong(utc);
-		Date date = new Date(lutc);
-		return date.toString();
+	static public String ChangeDate (Long utc){
+	
+		Date date = new Date(utc);
+		return date.toLocaleString();
+		 
 	}
 	
 	
