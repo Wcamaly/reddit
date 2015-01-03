@@ -53,18 +53,7 @@ public class RestActivity extends ActionBarActivity {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
     }
 
-    public void addToQueue (Request req){
-    	if( req != null){
-    		req.setTag(this);
-    		if( request == null){
-    			request = volleys.getRequestQueue();
-    		}
-    		req.setRetryPolicy(new DefaultRetryPolicy(6000, 3, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT) );
-    		onPreStartConnection();
-    		request.add(req);
-    	}	
-    }
-    
+
     public void makeRequest (String pettion,String method, final AdapterReddit adapter){
     	int met;
     	if (method.equalsIgnoreCase("POST") || method.equalsIgnoreCase("PUT"))
